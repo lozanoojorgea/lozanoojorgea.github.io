@@ -1,15 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Inria+Sans&display=swap');
+
 * {
 	margin: 0;
 	padding: 0;
 }
 body {
-	background: url(images/noise.jpg);
-	font: 16px Helvetica, Sans-Serif;
+	background-color: #000;
+	color: #fff8e7;
+	font: 16px 'Inria Sans', sans-serif;
 	line-height: 24px;
 }
 h1 {
 	border-bottom: 1px solid #999;
 	font-size: 42px;
+	font-family: 'Inconsolata', monospace;
 	font-weight: bold;
 	letter-spacing: -2px;
 	margin: 0 0 16px 0;
@@ -23,7 +27,6 @@ h2 {
 	h2 span {
 		bottom: 0;
 		color: #999;
-		font-family: Georgia, Serif;
 		font-size: 16px;
 		font-style: italic;
 		font-weight: normal;
@@ -51,7 +54,7 @@ dt {
 	font-size: 18px;
 	font-style: italic;
 	font-weight: bold;
-	height: 100px;
+	height: auto;
 	padding: 0 26px 0 0;
 	text-align: right;
 	width: 150px;
@@ -62,7 +65,7 @@ dd {
 }
 	dd.clear {
 		float: none;
-		height: 15px;
+		height: 10px;
 		margin: 0;
 	}
 
