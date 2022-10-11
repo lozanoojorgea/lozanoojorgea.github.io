@@ -1,15 +1,14 @@
-* { outline: 1px red dotted; }
+/* * { outline: 1px red dotted; }
 * * { outline: 1px orange dotted; }
 * * * { outline: 1px yellow dotted; }
 * * * * { outline: 1px green dotted; }
 * * * * * { outline: 1px blue dotted; }
 * * * * * * { outline: 1px indigo dotted; }
 * * * * * * * { outline: 1px violet dotted; }
-/* head, title, style { display: block }
+head, title, style { display: block }
 style { font-family: monospace; white-space: pre; color: #000; } */
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Inria+Sans&display=swap');
 :root {
-	--primary-font: 'Open Sans', sans-serif;
 	--system-font: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 	--small-padding: 1em;
 	--medium-padding: 2em;
@@ -17,9 +16,9 @@ style { font-family: monospace; white-space: pre; color: #000; } */
 	--c_cl: #fff8e7;
 	--even: #888888;
 }
-html {
+/* html {
 	transform: scaleX(-1);
-}
+} */
 body {
 	font-family: var(--primary-font);
 	margin: 0;
@@ -69,7 +68,6 @@ img {
 	}
 	body {
 		color: var(--c_cl);
-		font-family: 'Inria Sans', Corbel, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', 'Bitstream Vera Sans', 'Liberation Sans', Verdana, 'Verdana Ref', sans-serif;
 	}
 		nav ul { list-style: none; }
 	section {
@@ -87,6 +85,9 @@ img {
 	h1, h2, h3, h4, h5, h6 {
 		font-family: 'Inconsolata', Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
 		text-overflow: ellipsis;
+	}
+	p, a, details, summary, sup, sub, abbr {
+		font-family: 'Inria Sans', Corbel, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', 'Bitstream Vera Sans', 'Liberation Sans', Verdana, 'Verdana Ref', sans-serif;
 	}
 	a { break-inside: avoid; }
 		a[href^="http://"]::before, a[href^="/"]::before, a[href^=".."]::before { content: "🔗"; }
