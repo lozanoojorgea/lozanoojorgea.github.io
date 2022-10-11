@@ -1,92 +1,181 @@
+* { outline: 1px red dotted; }
+* * { outline: 1px orange dotted; }
+* * * { outline: 1px yellow dotted; }
+* * * * { outline: 1px green dotted; }
+* * * * * { outline: 1px blue dotted; }
+* * * * * * { outline: 1px indigo dotted; }
+* * * * * * * { outline: 1px violet dotted; }
+/* head, title, style { display: block }
+style { font-family: monospace; white-space: pre; color: #000; } */
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata&family=Inria+Sans&display=swap');
-
-* {
+:root {
+	--primary-font: 'Open Sans', sans-serif;
+	--system-font: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	--small-padding: 1em;
+	--medium-padding: 2em;
+	--large-padding: 3em;
+	--c_cl: #fff8e7;
+	--even: #888888;
+}
+html {
+	transform: scaleX(-1);
+}
+body {
+	font-family: var(--primary-font);
 	margin: 0;
 	padding: 0;
 }
-body {
-	background-color: #000;
-	color: #fff8e7;
-	font: 16px 'Inria Sans', sans-serif;
-	line-height: 24px;
+main {
+	display: grid;
+	margin: 0 auto;
+	width: min(100%, 1000px);
 }
-h1 {
-	border-bottom: 1px solid #999;
-	font-size: 42px;
-	font-family: 'Inconsolata', monospace;
-	font-weight: bold;
-	letter-spacing: -2px;
-	margin: 0 0 16px 0;
-	padding: 0 0 16px 0;
+article, aside, .gallery, footer, header, nav, section {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
 }
-h2 {
-	font-size: 20px;
-	margin: 0 0 6px 0;
-	position: relative;
+header, nav { padding: var(--small-padding) 0; }
+article, section { padding: var(--large-padding) 0; }
+aside, footer, .gallery { padding: var(--medium-padding) 0; }
+p {
+	-webkit-hyphens: auto; hyphens: auto;
+	word-break: break-word;
 }
-	h2 span {
-		bottom: 0;
-		color: #999;
-		font-size: 16px;
-		font-style: italic;
-		font-weight: normal;
+pre {
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+.amp {
+	font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
+	font-style: italic;
+	font-weight: normal;
+}
+.l_2c {
+	-webkit-columns: 2; -moz-columns: 2; columns: 2;
+	column-rule-style: solid;
+	column-rule-width: 2px;
+	list-style-position: inside;
+}
+	.l_2c li { break-inside: avoid-column; }
+img {
+	height: auto;
+	max-width: 100%;
+}
+@media only screen {
+	::selection {
+		background-color: yellow;
+		color: #000;
+	}
+	body {
+		color: var(--c_cl);
+		font-family: 'Inria Sans', Corbel, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', 'Bitstream Vera Sans', 'Liberation Sans', Verdana, 'Verdana Ref', sans-serif;
+	}
+		nav ul { list-style: none; }
+	section {
+		display: grid;
+		grid-gap: 2%;
+		grid-auto-flow: row;
+		grid-template-columns: repeat(auto-fit, minmax(15%, 1fr));
+		grid-template-rows: masonry;
+	}
+		section div {
+			display: block;
+			object-fit: cover;
+		}
+		td:nth-child(even) { background-color: var(--even); }
+	h1, h2, h3, h4, h5, h6 {
+		font-family: 'Inconsolata', Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
+		text-overflow: ellipsis;
+	}
+	a { break-inside: avoid; }
+		a[href^="http://"]::before, a[href^="/"]::before, a[href^=".."]::before { content: "🔗"; }
+		a[href^="tel"]::before { content: "\2706"; }
+		a[href^="mailto"]::before { content: "📧"; }
+		a[href$=".pdf"]::before, a[href$=".xlsx"]::before, a[href$=".doc"]::before { content: "📄"; }
+		a[href$=".rar"]::before, a[href$=".zip"]::before { content: "🗜️"; }
+		a[href$=".webp"]::before { content: "🖼️"; }
+	details { cursor: pointer; }
+	sup, sub {
+		position: relative;
+		top: -0.4em;
+		vertical-align: baseline;
+	}
+	sub { top: 0.4em; }
+	abbr {
+		border-bottom: 1px dotted currentColor;
+		cursor: help;
+	}
+}
+@media only screen and (min-width: 550px) {
+	main { grid: auto repeat(6, 1fr) / repeat(4, 1fr); }
+	header { grid-column: 1 / 5; }
+	nav { grid-area: 4 / 1 / 8 / 2; }
+		nav ul li {
+			display: inline-block
+		}
+	section { grid-area: 2 / 1 / 4 / 5; }
+	article {
+		grid-area: 4 / 2 / 6 / 5;
+		height: 200px;
+		overflow-y: scroll;
+	}
+	footer { grid-column-end: span 3; }
+	aside { grid-column-end: span 2; }
+}
+@media only screen and (min-width: 800px) {
+	header { grid-column: 1; }
+	nav { grid-area: 1 / 2 / 2 / 5; }
+	section { grid-row-end: span 3; }
+	article { grid-area: 5 / 1 / 7 / 4; }
+	footer { grid-column-end: span 4; }
+	aside { grid-area: 5 / 4 ; }
+	.gallery { grid-area: 6 / 4; }
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	/* Retina-specific stuff here */
+}
+@media (prefers-reduced-motion: reduce) {
+	*, ::before, ::after {
+		animation-delay: -1ms;
+		animation-duration: 1ms;
+		animation-iteration-count: 1;
+		background-attachment: initial;
+		scroll-behavior: auto;
+		transition-delay: 0s;
+		transition-duration: 0s;
+	}
+}
+@media print {
+	@page { margin: 1.5cm; }
+	body {
+		filter: grayscale(100%);
+		font-family: Times, serif;
+		font-size: 10pt;
+		-webkit-hyphens: auto; hyphens: auto;
+		line-break: normal;
+		line-height: 1.3;
+		padding-top: 0;
+	}
+	/* main::before {
+		content: "Versión en línea: \a" url(https://chart.googleapis.com/chart?cht=qr&chs=150x150&chl=https://lozanoojorgea.github.io/&choe=UTF-8) / "https://lozanoojorgea.github.io/";
 		position: absolute;
 		right: 0;
-	}
-p {
-	margin: 0 0 16px 0;
-}
-a {
-	border-bottom: 1px dotted #999;
-	color: #999;
-	text-decoration: none;
-}
-	a:hover {
-		border-bottom-style: solid;
-		color: black;
-	}
-ul {
-	margin: 0 0 32px 17px;
-}
-dt {
-	border-right: 1px solid #999;
-	float: left;
-	font-size: 18px;
-	font-style: italic;
-	font-weight: bold;
-	height: auto;
-	padding: 0 26px 0 0;
-	text-align: right;
-	width: 150px;
-}
-dd {
-	float: right;
-	width: 600px;
-}
-	dd.clear {
-		float: none;
-		height: 10px;
+		top: 0;
+		white-space: pre-wrap;
+	} */
+	table, li ul, li ol, a { page-break-inside: avoid; }
+	h3, h4, h5 { page-break-after: avoid; }
+	h3 { font-size: 13pt; }
+	h4 { font-size: 12pt; }
+	h5 { font-size: 11pt; }
+	p, ul, ol, blockquote { font-size: inherit; }
+	blockquote {
 		margin: 0;
+		padding: 12.5px;
 	}
-
-.clear {
-	clear: both;
+	a { word-break: break-word; }
+	a::after{ content: " (" attr(href) ") "; }
+	a[href]:after { word-break: break-all; }
+	header, footer, nav, #print, #tope { display: none !important;}
 }
-
-#page-wrap {
-	margin: 40px auto 60px;
-	width: 800px;
-}
-#pic {
-	float: right;
-	margin: -30px 0 0 0;
-}
-#objective {
-	float: left;
-	width: 500px;
-}
-	#objective p {
-		font-family: Georgia, Serif;
-		font-style: italic;
-		color: #666;
-	}
